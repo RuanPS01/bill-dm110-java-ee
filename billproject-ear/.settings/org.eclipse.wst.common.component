@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                            
+                                    
+    
+    
     
     
     
     
     
     <wb-module deploy-name="billproject-ear-1.0">
-                                                        
+                                                                        
+        
+        
         
         
         
         
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
-                                                        
+                                                                        
+        
+        
         
         
         
@@ -32,14 +38,27 @@
         <dependent-module archiveName="billproject-ejb-1.0.jar" deploy-path="/" handle="module:/resource/billproject-ejb/billproject-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-                                                    
+        <dependent-module archiveName="mongodb-driver-sync-3.12.9.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/mongodb-driver-sync/3.12.9/mongodb-driver-sync-3.12.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mongodb-driver-core-3.12.9.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/mongodb-driver-core/3.12.9/mongodb-driver-core-3.12.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bson-3.12.9.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/mongodb/bson/3.12.9/bson-3.12.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                                                                    
+    
+    
     
     
     
     
     
     </wb-module>
-                        
+                                
+
+
 
 
 

@@ -6,10 +6,11 @@
 	<persistence-unit name="billproject_pu">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<non-jta-data-source>java:/BILLPROJECT_DS</non-jta-data-source>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="jboss.as.jpa.managed" value="false" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="javax.persistence.jdbc.driver" value="mongodb.jdbc.MongoDriver" />
+            <property name="javax.persistence.jdbc.url" value="mongodb+srv://ruanps:lGcKkaZtqJ12zSlf@cluster0.dd3eiaw.mongodb.net/" />
 		</properties>
 	</persistence-unit>
 </persistence>

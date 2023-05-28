@@ -14,7 +14,7 @@ public class BillServiceImpl implements BillService{
 	}
 
 	@Override
-	public String updateBill(String id) {
+	public String updateBill(String id, BillTO bill) {
 		// TODO Auto-generated method stub
 		return null;
 	}

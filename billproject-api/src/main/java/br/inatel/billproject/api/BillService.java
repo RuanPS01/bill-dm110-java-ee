@@ -17,13 +17,13 @@ public interface BillService {
 	@Path("/create")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	String createBill(BillTO billTO);
+	String createBill(BillTO bill);
 
 	@PUT
 	@Path("/update")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	String updateBill(@PathParam("id") String id);
+	String updateBill(@PathParam("id") String id, BillTO bill);
 
 	@GET
 	@Path("/list")
