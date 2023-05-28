@@ -4,11 +4,11 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
  
-  <name>Trabalho de DM 110 parent</name>
+  <name>Billproject parent</name>
   <description>DM 110 JEE agregator</description>
 
-  <groupId>br.inatel.dm110</groupId>
-  <artifactId>trabalho-parent</artifactId>
+  <groupId>br.inatel.billproject</groupId>
+  <artifactId>billproject-parent</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
 
@@ -17,12 +17,12 @@
   </properties>
 
   <modules>
-    <module>trabalho-ear</module>
-    <module>trabalho-ejb</module>
-    <module>trabalho-app-client</module>
-    <module>trabalho-web</module>
-    <module>trabalho-api</module>
-    <module>trabalho-impl</module>
+    <module>billproject-ear</module>
+    <module>billproject-ejb</module>
+    <module>billproject-app-client</module>
+    <module>billproject-web</module>
+    <module>billproject-api</module>
+    <module>billproject-impl</module>
   </modules>
 
   <build>
@@ -41,32 +41,32 @@
   <dependencyManagement>
     <dependencies>
 		<dependency>
-			  <groupId>br.inatel.dm110</groupId>
-			  <artifactId>trabalho-web</artifactId>
+			  <groupId>br.inatel.billproject</groupId>
+			  <artifactId>billproject-web</artifactId>
 			  <version>1.0</version>
 			  <type>war</type>
 		</dependency>
 		<dependency>
-			  <groupId>br.inatel.dm110</groupId>
-			  <artifactId>trabalho-ejb</artifactId>
+			  <groupId>br.inatel.billproject</groupId>
+			  <artifactId>billproject-ejb</artifactId>
 			  <version>1.0</version>
 			  <type>ejb</type>
 		</dependency>
 		<dependency>
-			  <groupId>br.inatel.dm110</groupId>
-			  <artifactId>trabalho-app-client</artifactId>
+			  <groupId>br.inatel.billproject</groupId>
+			  <artifactId>billproject-app-client</artifactId>
 			  <version>1.0</version>
 			  <type>jar</type>
 		</dependency>
 		<dependency>
-			  <groupId>br.inatel.dm110</groupId>
-			  <artifactId>trabalho-api</artifactId>
+			  <groupId>br.inatel.billproject</groupId>
+			  <artifactId>billproject-api</artifactId>
 			  <version>1.0</version>
 			  <type>jar</type>
 		</dependency>
 		<dependency>
-			  <groupId>br.inatel.dm110</groupId>
-			  <artifactId>trabalho-impl</artifactId>
+			  <groupId>br.inatel.billproject</groupId>
+			  <artifactId>billproject-impl</artifactId>
 			  <version>1.0</version>
 			  <type>jar</type>
 		</dependency>

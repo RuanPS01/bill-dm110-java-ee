@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+                            
+    
+    
+    
+    
+    
+    <wb-module deploy-name="billproject-ear-1.0">
+                                                        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+                                                        
+        
+        
+        
+        
+        
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="billproject-api-1.0.jar" deploy-path="/lib" handle="module:/resource/billproject-api/billproject-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="billproject-impl-1.0.jar" deploy-path="/lib" handle="module:/resource/billproject-impl/billproject-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="billproject-web-1.0.war" deploy-path="/" handle="module:/resource/billproject-web/billproject-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="billproject-ejb-1.0.jar" deploy-path="/" handle="module:/resource/billproject-ejb/billproject-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                                                    
+    
+    
+    
+    
+    
+    </wb-module>
+                        
+
+
+
+
+
+</project-modules>
