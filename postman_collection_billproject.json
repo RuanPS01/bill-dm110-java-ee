@@ -1,130 +1,157 @@
 {
-  "info": {
-    "_postman_id": "dd8c3ee7-5117-4c08-8e14-04fc3071a4a1",
-    "name": "API de Contas",
-    "description": "Coleção da API de Contas",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Criar Conta",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"bill_code\": \"12345\",\n  \"description\": \"Conta de água\",\n  \"value\": 100.0,\n  \"expiration_date\": \"2023-06-30\",\n  \"paid_date\": null\n}"
-        },
-        "url": {
-          "raw": "{{base_url}}/bill/create",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "bill",
-            "create"
-          ]
-        },
-        "description": "Cria uma nova conta."
-      },
-      "response": []
-    },
-    {
-      "name": "Atualizar Conta",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"bill_code\": \"54321\",\n  \"description\": \"Conta de luz\",\n  \"value\": 150.0,\n  \"expiration_date\": \"2023-07-31\",\n  \"paid_date\": null\n}"
-        },
-        "url": {
-          "raw": "{{base_url}}/bill/update/{{id}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "bill",
-            "update",
-            "{{id}}"
-          ]
-        },
-        "description": "Atualiza uma conta existente."
-      },
-      "response": []
-    },
-    {
-      "name": "Listar Contas",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{base_url}}/bill/list?searchText=&minExpirationDate=&maxExpirationDate=&minPaidDate=&maxPaidDate=",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "bill",
-            "list"
-          ],
-          "query": [
-            {
-              "key": "searchText",
-              "value": ""
-            },
-            {
-              "key": "minExpirationDate",
-              "value": ""
-            },
-            {
-              "key": "maxExpirationDate",
-              "value": ""
-            },
-            {
-              "key": "minPaidDate",
-              "value": ""
-            },
-            {
-              "key": "maxPaidDate",
-              "value": ""
-            }
-          ]
-        },
-        "description": "Lista todas as contas."
-      },
-      "response": []
-    },
-    {
-      "name": "Excluir Conta",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "url": {
-          "raw": "{{base_url}}/bill/delete/{{id}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "bill",
-            "delete",
-            "{{id}}"
-          ]
-        },
-        "description": "Exclui uma conta existente."
-      },
-      "response": []
-    }
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": "https://api.example.com",
-      "type": "string"
-    },
-    {
-      "key": "id",
-      "value": "1",
-      "type": "string"
-    }
-  ]
+	"info": {
+		"_postman_id": "ec8b0da1-d0ad-4ee8-9343-00e7435a993b",
+		"name": "Bill Project - API de Contas/Boletos",
+		"description": "Coleção da API de Contas/Boletos - Bill Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5272549",
+		"_collection_link": "https://grey-space-800931.postman.co/workspace/Ruanps-Workspace~b9020c5b-0f39-4b43-83b1-fe5a11eadd3f/collection/5272549-ec8b0da1-d0ad-4ee8-9343-00e7435a993b?action=share&creator=5272549&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Criar Conta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bill_code\": \"12345\",\n  \"description\": \"Conta de água\",\n  \"value\": 100.0,\n  \"expiration_date\": \"2023-06-30\",\n  \"paid_date\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/bill/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bill",
+						"create"
+					]
+				},
+				"description": "Cria uma nova conta."
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Conta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bill_code\": \"54321\",\n  \"description\": \"Conta de luz\",\n  \"value\": 150.0,\n  \"expiration_date\": \"2023-07-31\",\n  \"paid_date\": null\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/bill/update/{{id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bill",
+						"update",
+						"{{id}}"
+					]
+				},
+				"description": "Atualiza uma conta existente."
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Contas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bill/list?searchText=&minExpirationDate=&maxExpirationDate=&minPaidDate=&maxPaidDate=",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bill",
+						"list"
+					],
+					"query": [
+						{
+							"key": "searchText",
+							"value": ""
+						},
+						{
+							"key": "minExpirationDate",
+							"value": ""
+						},
+						{
+							"key": "maxExpirationDate",
+							"value": ""
+						},
+						{
+							"key": "minPaidDate",
+							"value": ""
+						},
+						{
+							"key": "maxPaidDate",
+							"value": ""
+						}
+					]
+				},
+				"description": "Lista todas as contas."
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Conta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/bill/delete/{{id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bill",
+						"delete",
+						"{{id}}"
+					]
+				},
+				"description": "Exclui uma conta existente."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8080/billproject-web/api",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "1",
+			"type": "string"
+		}
+	]
 }
