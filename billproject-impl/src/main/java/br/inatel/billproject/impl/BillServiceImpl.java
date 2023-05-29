@@ -1,17 +1,19 @@
 package br.inatel.billproject.impl;
 
-import java.util.Collection;
 import br.inatel.billproject.api.BillService;
 import br.inatel.billproject.api.BillTO;
 import br.inatel.billproject.api.ResponseBillList;
 import br.inatel.billproject.api.ResponseMessageTO;
 import br.inatel.billproject.bill.beans.BillBean;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.core.Response;
 
+
+@RequestScoped
 public class BillServiceImpl implements BillService {
 
-    @EJB
+    @EJB(lookup="ejb:billproject-ear-1.0/billproject-ejb-1.0/BillBean!br.inatel.billproject.bill.interfaces.BillBean")
     private BillBean billBean;
 
     @Override
