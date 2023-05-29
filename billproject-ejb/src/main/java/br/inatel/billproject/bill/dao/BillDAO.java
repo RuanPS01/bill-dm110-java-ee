@@ -1,12 +1,10 @@
 package br.inatel.billproject.bill.dao;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-import br.inatel.billproject.bill.beans.MongoConnectionBean;
 import br.inatel.billproject.bill.entities.Bill;
 
 import com.mongodb.client.FindIterable;
@@ -21,8 +19,7 @@ import java.util.regex.Pattern;
 
 @Stateless
 public class BillDAO {
-    @EJB
-    private MongoConnectionBean mongoDbConnection;
+    private MongoConnection mongoDbConnection = new MongoConnection();
 
     public Boolean save(Bill bill) {
         try {

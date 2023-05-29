@@ -2,7 +2,8 @@ package br.inatel.billproject.bill.beans;
 
 import java.util.List;
 import java.util.ArrayList;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
@@ -12,21 +13,36 @@ import br.inatel.billproject.api.BillTO;
 import br.inatel.billproject.api.ResponseBillList;
 import br.inatel.billproject.api.ResponseMessageTO;
 import br.inatel.billproject.bill.dao.BillDAO;
+import br.inatel.billproject.bill.entities.Audit;
 import br.inatel.billproject.bill.entities.Bill;
-import br.inatel.billproject.bill.interfaces.BillRepository;
+import br.inatel.billproject.bill.interfaces.BillLocal;
+
+
 
 @Stateless
-@Local(BillRepository.class)
-public class BillBean implements BillRepository {
+@Local(BillLocal.class)
+public class BillBean implements BillLocal {
 
     @EJB
     private BillDAO billDAO;
+    
+    @EJB
+    private AuditMessageSender auditting;
 
     @Override
     public ResponseMessageTO create(BillTO billTO) {
         Bill bill = convertToBill(billTO);
         boolean result = billDAO.save(bill);
-
+        
+        Audit auditLog = new Audit();
+        auditLog.setRegister_code(bill.getBill_code());
+        auditLog.setOperation("create");
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        String isoString = now.format(formatter);
+        auditLog.setTimestamp(isoString);
+        auditting.sendTextMessage(auditLog);
+        
         if (result) {
             return new ResponseMessageTO("Bill created successfully");
         } else {
@@ -39,6 +55,15 @@ public class BillBean implements BillRepository {
         Bill bill = convertToBill(billTO);
         boolean result = billDAO.edit(bill);
 
+        Audit auditLog = new Audit();
+        auditLog.setRegister_code(bill.getBill_code());
+        auditLog.setOperation("update");
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        String isoString = now.format(formatter);
+        auditLog.setTimestamp(isoString);
+        auditting.sendTextMessage(auditLog);
+        
         if (result) {
             return new ResponseMessageTO("Bill updated successfully");
         } else {
