@@ -6,20 +6,26 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
 
 @Stateless
-public class MongoConnection {
+public class MongoConnectionBean {
     private MongoClient client;
     private MongoDatabase database;
     
-    public MongoConnection() {
-        String connectionString = "mongodb://localhost:27017/seu_banco_de_dados";
+    public MongoConnectionBean() {
+        String connectionString = "mongodb+srv://ruanps:lGcKkaZtqJ12zSlf@cluster0.dd3eiaw.mongodb.net/bill-project";
         MongoClientURI uri = new MongoClientURI(connectionString);
         client = new MongoClient(uri);
-        database = client.getDatabase(uri.getDatabase());
+        setDatabase(client.getDatabase(uri.getDatabase()));
     }
-    
-    // Métodos para realizar operações no banco de dados...
     
     public void close() {
         client.close();
     }
+
+	public MongoDatabase getDatabase() {
+		return database;
+	}
+
+	public void setDatabase(MongoDatabase database) {
+		this.database = database;
+	}
 }
