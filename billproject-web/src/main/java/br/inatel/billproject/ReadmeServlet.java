@@ -1,0 +1,175 @@
+package br.inatel.billproject;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/readme")
+public class ReadmeServlet extends HttpServlet {
+
+    private static final long serialVersionUID = -24118939727042992L;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        PrintWriter out = resp.getWriter();
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>API de Contas/Boletos</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>API de Contas/Boletos</h1>");
+        out.println("<h2>Endpoints:</h2>");
+
+        out.println("<h3>Criar Conta</h3>");
+        out.println("<ul>");
+        out.println("<li>Método: POST</li>");
+        out.println("<li>URL: <code>/bill/create</code></li>");
+        out.println("<li>Tipo de Conteúdo: application/json</li>");
+        out.println("<li>Parâmetros de URL: Nenhum</li>");
+        out.println("<li>Corpo da Requisição:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"bill_code\": \"12345\",");
+        out.println("  \"description\": \"Conta de água\",");
+        out.println("  \"value\": 100.0,");
+        out.println("  \"expiration_date\": \"2023-06-30\",");
+        out.println("  \"paid_date\": null");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("<li>Possíveis respostas:");
+        out.println("<ul>");
+        out.println("<li>Código de status: 200 (OK)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"message\": \"Conta criada com sucesso\"");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("<li>Código de status: 400 (Erro de Requisição)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"message\": \"Falha ao criar a conta\"");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("</ul></li>");
+        out.println("</ul>");
+
+        out.println("<h3>Atualizar Conta</h3>");
+        out.println("<ul>");
+        out.println("<li>Método: PUT</li>");
+        out.println("<li>URL: <code>/bill/update/{id}</code></li>");
+        out.println("<li>Tipo de Conteúdo: application/json</li>");
+        out.println("<li>Parâmetros de URL:");
+        out.println("<ul>");
+        out.println("<li><code>id</code> (obrigatório): ID da conta a ser atualizada</li>");
+        out.println("</ul></li>");
+        out.println("<li>Corpo da Requisição:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"bill_code\": \"54321\",");
+        out.println("  \"description\": \"Conta de luz\",");
+        out.println("  \"value\": 150.0,");
+        out.println("  \"expiration_date\": \"2023-07-31\",");
+        out.println("  \"paid_date\": null");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("<li>Possíveis respostas:");
+        out.println("<ul>");
+        out.println("<li>Código de status: 200 (OK)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"message\": \"Conta atualizada com sucesso\"");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("<li>Código de status: 400 (Erro de Requisição)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"message\": \"Falha ao atualizar a conta\"");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("</ul></li>");
+        out.println("</ul>");
+
+        out.println("<h3>Listar Contas</h3>");
+        out.println("<ul>");
+        out.println("<li>Método: GET</li>");
+        out.println("<li>URL: <code>/bill/list</code></li>");
+        out.println("<li>Tipo de Conteúdo: application/json</li>");
+        out.println("<li>Parâmetros de URL:");
+        out.println("<ul>");
+        out.println("<li><code>searchText</code> (opcional): Texto para filtrar contas por código da conta, descrição ou valor</li>");
+        out.println("<li><code>minExpirationDate</code> (opcional): Data mínima de vencimento para filtrar contas</li>");
+        out.println("<li><code>maxExpirationDate</code> (opcional): Data máxima de vencimento para filtrar contas</li>");
+        out.println("<li><code>minPaidDate</code> (opcional): Data mínima de pagamento para filtrar contas</li>");
+        out.println("<li><code>maxPaidDate</code> (opcional): Data máxima de pagamento para filtrar contas</li>");
+        out.println("</ul></li>");
+        out.println("<li>Possíveis respostas:");
+        out.println("<ul>");
+        out.println("<li>Código de status: 200 (OK)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"bills\": [");
+        out.println("    {");
+        out.println("      \"id\": \"1\",");
+        out.println("      \"bill_code\": \"12345\",");
+        out.println("      \"description\": \"Conta de água\",");
+        out.println("      \"value\": 100.0,");
+        out.println("      \"expiration_date\": \"2023-06-30\",");
+        out.println("      \"paid_date\": null");
+        out.println("    },");
+        out.println("    {");
+        out.println("      \"id\": \"2\",");
+        out.println("      \"bill_code\": \"54321\",");
+        out.println("      \"description\": \"Conta de luz\",");
+        out.println("      \"value\": 150.0,");
+        out.println("      \"expiration_date\": \"2023-07-31\",");
+        out.println("      \"paid_date\": null");
+        out.println("    }");
+        out.println("  ]");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("</ul></li>");
+        out.println("</ul>");
+
+        out.println("<h3>Excluir Conta</h3>");
+        out.println("<ul>");
+        out.println("<li>Método: PUT</li>");
+        out.println("<li>URL: <code>/bill/delete/{id}</code></li>");
+        out.println("<li>Tipo de Conteúdo: application/json</li>");
+        out.println("<li>Parâmetros de URL:");
+        out.println("<ul>");
+        out.println("<li><code>id</code> (obrigatório): ID da conta a ser excluída</li>");
+        out.println("</ul></li>");
+        out.println("<li>Possíveis respostas:");
+        out.println("<ul>");
+        out.println("<li>Código de status: 200 (OK)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"message\": \"Conta excluída com sucesso\"");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("<li>Código de status: 400 (Erro de Requisição)</li>");
+        out.println("<li>Exemplo:");
+        out.println("<pre>");
+        out.println("{");
+        out.println("  \"message\": \"Falha ao excluir a conta\"");
+        out.println("}");
+        out.println("</pre></li>");
+        out.println("</ul></li>");
+        out.println("</ul>");
+
+        out.println("</body>");
+        out.println("</html>");
+    }
+}

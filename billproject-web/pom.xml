@@ -33,7 +33,7 @@
 	<dependency>
 		  <groupId>br.inatel.billproject</groupId>
 		  <artifactId>billproject-impl</artifactId>
-		  <type>jar</type>
+		  <version>1.0</version>
 	</dependency>
 	<dependency>
 		  <groupId>br.inatel.billproject</groupId>
