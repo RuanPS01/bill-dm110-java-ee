@@ -1,4 +1,4 @@
-﻿# API de Contas
+﻿# API de Contas/Boletos
 
 Esta é uma API para gerenciamento de contas.
 
